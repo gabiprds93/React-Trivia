@@ -6,7 +6,7 @@ class Aplication extends React.Component
         this.imgs = props.imgs;
         this.preguntas = props.preguntas;
         this.total = 5;
-        this.arregloRespuestas = [];
+        this.arregloRespuestas = new Array(this.total);
         this.contCorrectas = 0;
 
         this.state = 
@@ -22,10 +22,7 @@ class Aplication extends React.Component
 
    guardarRespuestas(e)
     {
-        this.arregloRespuestas.push(e.target.textContent);
-        this.setState({
-            contador: this.state.contador,
-        });
+        this.arregloRespuestas[this.state.contador] = e.target.textContent;
         this.siguiente();
     }
 
